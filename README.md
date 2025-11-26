@@ -17,4 +17,4 @@ If something here solves a problem for you, great. If it gives you an idea for y
 ## Running Anything Here 🚀
 Each project has its own folder with setup instructions. Requirements are kept minimal by design - if it needs more than basic Python and a couple packages, something went wrong.
 
-Built while learning. Shared because why not. 🤷
+## Built while learning. Shared because why not. 🤷
