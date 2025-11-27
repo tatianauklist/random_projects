@@ -1,0 +1,110 @@
+exclusions:
+  - word: guarantee
+    severity: critical
+    category: financial
+  - word: guaranteed
+    severity: critical
+    category: financial
+  - word: risk-free
+    severity: critical
+    category: financial
+  - word: assured returns
+    severity: critical
+    category: financial
+  - word: can't lose
+    severity: critical
+    category: financial
+  - word: no risk
+    severity: critical
+    category: financial
+  - word: get rich quick
+    severity: high
+    category: financial
+  - word: instant profit
+    severity: high
+    category: financial
+  - word: best investment
+    severity: medium
+    category: financial
+  
+  # Medical/Health Claims
+  - word: cure
+    severity: critical
+    category: medical
+  - word: FDA approved
+    severity: critical
+    category: medical
+  - word: scientifically proven
+    severity: high
+    category: medical
+  - word: miracle
+    severity: high
+    category: medical
+  - word: 100% effective
+    severity: critical
+    category: medical
+  
+  # Absolute Claims
+  - word: always
+    severity: high
+    category: absolute
+  - word: never
+    severity: high
+    category: absolute
+  - word: 100% safe
+    severity: critical
+    category: absolute
+  - word: completely
+    severity: medium
+    category: absolute
+  - word: definitely
+    severity: medium
+    category: absolute
+  - word: certainly
+    severity: medium
+    category: absolute
+  
+  # Superlatives/Rankings
+  - word: best
+    severity: medium
+    category: marketing
+  - word: "#1"
+    severity: high
+    category: marketing
+  - word: number one
+    severity: high
+    category: marketing
+  - word: top-rated
+    severity: medium
+    category: marketing
+  
+  # Urgency/Pressure Tactics
+  - word: act now
+    severity: high
+    category: urgency
+  - word: limited time
+    severity: medium
+    category: urgency
+  - word: urgent
+    severity: medium
+    category: urgency
+  - word: expires soon
+    severity: medium
+    category: urgency
+  
+  # Legal/Compliance Red Flags
+  - word: loophole
+    severity: high
+    category: legal
+  - word: tax haven
+    severity: critical
+    category: legal
+  - word: offshore account
+    severity: high
+    category: legal
+  - word: no questions asked
+    severity: critical
+    category: legal
+  - word: confidential information
+    severity: high
+    category: legal
