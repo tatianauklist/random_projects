@@ -1,0 +1,16 @@
+young,old
+beautiful,ugly
+fair,dark
+pale,flushed
+alive,dead
+living,deceased
+breathe,lifeless
+love,hate
+happy,sad
+joy,sorrow
+peace,war
+noble,common
+rich,poor
+lord,servant
+day,night
+morning,evening
