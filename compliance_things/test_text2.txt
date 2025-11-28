@@ -1,0 +1,35 @@
+Sample Terms of Service Agreement
+TERMS OF SERVICE AGREEMENT
+Last Updated: November 2024
+PLEASE READ THESE TERMS CAREFULLY BEFORE USING OUR SERVICES.
+1. Acceptance of Terms
+By accessing or using DataSync Pro's services, you automatically agree to be bound by these Terms of Service. If you do not agree to all terms, you must immediately discontinue use. Your continued use constitutes full acceptance of any future modifications we make at our sole discretion.
+2. Service Description
+DataSync Pro provides cloud-based data synchronization services. We guarantee 99.9% uptime and promise that your data will always be secure and never accessible to unauthorized parties. Our proprietary encryption ensures absolute protection of all information.
+3. User Obligations
+You agree to:
+
+Provide accurate information at all times
+Maintain the confidentiality of your account
+Accept full liability for any and all uses of your account
+Waive any right to legal action against DataSync Pro under any circumstances
+Indemnify us for any claims arising from your use, regardless of our negligence
+
+4. Intellectual Property
+All content, code, and materials become our exclusive property upon upload. You automatically transfer all rights, title, and interest to DataSync Pro without compensation. We may use, modify, or distribute your content in perpetuity without restriction or attribution.
+5. Payment Terms
+Subscription fees are non-refundable under any circumstances. We reserve the right to modify pricing at any time without notice. By subscribing, you authorize us to charge your payment method indefinitely until you cancel, though cancellation fees may apply at our discretion.
+6. Limitation of Liability
+DATASYNC PRO IS PROVIDED "AS IS" WITHOUT ANY WARRANTIES. WE DISCLAIM ALL LIABILITY FOR DATA LOSS, SECURITY BREACHES, SYSTEM FAILURES, OR ANY OTHER DAMAGES. YOU ASSUME ALL RISK. OUR TOTAL LIABILITY WILL NEVER EXCEED $1, REGARDLESS OF THE ACTUAL DAMAGES INCURRED.
+7. Dispute Resolution
+You waive your right to participate in class action lawsuits. All disputes must be resolved through binding arbitration in our jurisdiction of choice. You agree to pay all arbitration costs regardless of outcome.
+8. Confidential Information
+By using our services, you grant us unlimited access to monitor, review, and share your data with third parties without your explicit consent. We may disclose information as we deem necessary for business purposes.
+9. Termination
+We may terminate your account at any time for any reason without notice or refund. Upon termination, you forfeit all data and any unused subscription time.
+10. Governing Law
+These terms are governed by the laws of our choosing and may be changed without notification. By continuing to use our service after changes, you automatically accept all modifications.
+11. Entire Agreement
+This agreement supersedes all prior agreements and constitutes the complete understanding between parties. No verbal or written representations outside this document are binding.
+BY CLICKING "ACCEPT" OR USING OUR SERVICES, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS.
+

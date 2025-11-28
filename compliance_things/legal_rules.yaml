@@ -1,0 +1,111 @@
+exclusions:
+  # Unconscionable terms
+  - word: automatically agree
+    severity: critical
+    category: unconscionable
+  
+  - word: sole discretion
+    severity: high
+    category: unconscionable
+  
+  - word: under any circumstances
+    severity: high
+    category: overreach
+  
+  - word: regardless of
+    severity: high
+    category: overreach
+  
+  - word: without notice
+    severity: high
+    category: unfair_practice
+  
+  - word: at any time
+    severity: medium
+    category: vagueness
+  
+  # Absolute guarantees (risky claims)
+  - word: guarantee
+    severity: critical
+    category: risky_claim
+  
+  - word: promise
+    severity: critical
+    category: risky_claim
+  
+  - word: always
+    severity: high
+    category: absolute_claim
+  
+  - word: never
+    severity: high
+    category: absolute_claim
+  
+  - word: absolute
+    severity: high
+    category: absolute_claim
+  
+  # Liability waivers (potentially unenforceable)
+  - word: waive any right
+    severity: critical
+    category: unenforceable
+  
+  - word: disclaim all liability
+    severity: critical
+    category: unenforceable
+  
+  - word: assume all risk
+    severity: high
+    category: unenforceable
+  
+  - word: forfeit all
+    severity: high
+    category: punitive
+  
+  # IP overreach
+  - word: exclusive property
+    severity: high
+    category: ip_overreach
+  
+  - word: transfer all rights
+    severity: critical
+    category: ip_overreach
+  
+  - word: without compensation
+    severity: high
+    category: unfair_practice
+  
+  # Privacy concerns
+  - word: without your explicit consent
+    severity: critical
+    category: privacy_violation
+  
+  - word: unlimited access
+    severity: critical
+    category: privacy_violation
+  
+  - word: as we deem necessary
+    severity: high
+    category: vagueness
+  
+  # Procedural fairness
+  - word: waive your right
+    severity: critical
+    category: rights_waiver
+  
+  - word: binding arbitration
+    severity: medium
+    category: dispute_resolution
+  
+  - word: jurisdiction of choice
+    severity: high
+    category: unfair_practice
+  
+  # Modification clauses
+  - word: may be changed without
+    severity: high
+    category: unfair_modification
+  
+  - word: without notification
+    severity: high
+    category: unfair_modification
