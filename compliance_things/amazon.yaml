@@ -1,0 +1,61 @@
+exclusions:
+  # Data Collection
+  - word: "information.*we.*collect"
+    category: "data_collection"
+    severity: "high"
+  
+  - word: "device.*identifiers?"
+    category: "device_tracking"
+    severity: "medium"
+  
+  - word: "purchase.*history"
+    category: "behavioral_data"
+    severity: "high"
+  
+  - word: "voice.*recordings?"
+    category: "audio_data"
+    severity: "critical"
+  
+  # Third Party Sharing
+  - word: "third[- ]party.*sellers?"
+    category: "third_party_sharing"
+    severity: "high"
+  
+  - word: "affiliates?.*may.*access"
+    category: "affiliate_sharing"
+    severity: "medium"
+  
+  - word: "service.*providers?.*process"
+    category: "vendor_access"
+    severity: "medium"
+  
+  # AWS/Cloud Specific
+  - word: "customer.*content"
+    category: "content_rights"
+    severity: "high"
+  
+  - word: "we.*may.*use.*your.*content"
+    category: "content_usage"
+    severity: "critical"
+  
+  # Legal Terms
+  - word: "binding.*arbitration"
+    category: "legal_restrictions"
+    severity: "high"
+  
+  - word: "class.*action.*waiver"
+    category: "legal_restrictions"
+    severity: "critical"
+  
+  - word: "modify.*these.*conditions.*without.*notice"
+    category: "unilateral_changes"
+    severity: "high"
+  
+  # Alexa/Smart Device
+  - word: "alexa.*interactions?"
+    category: "assistant_data"
+    severity: "high"
+  
+  - word: "always.*listening"
+    category: "continuous_monitoring"
+    severity: "critical"

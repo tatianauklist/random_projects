@@ -1,0 +1,69 @@
+exclusions:
+  # Tracking & Ads
+  - word: "track.*across.*websites?"
+    category: "cross_site_tracking"
+    severity: "critical"
+  
+  - word: "personalized.*ads?"
+    category: "targeted_advertising"
+    severity: "high"
+  
+  - word: "advertising.*partners?"
+    category: "ad_network_sharing"
+    severity: "high"
+  
+  - word: "meta.*pixel"
+    category: "tracking_technology"
+    severity: "high"
+  
+  # Data Collection
+  - word: "contacts?.*list"
+    category: "contact_harvesting"
+    severity: "critical"
+  
+  - word: "facial.*recognition"
+    category: "biometric_data"
+    severity: "critical"
+  
+  - word: "friends?.*data"
+    category: "network_data_collection"
+    severity: "high"
+  
+  - word: "off[- ]facebook.*activity"
+    category: "external_tracking"
+    severity: "critical"
+  
+  # Content Rights
+  - word: "non[- ]exclusive.*license"
+    category: "content_licensing"
+    severity: "medium"
+  
+  - word: "transferable.*license"
+    category: "content_transfer"
+    severity: "high"
+  
+  - word: "sublicense"
+    category: "sublicensing_rights"
+    severity: "high"
+  
+  - word: "even.*after.*you.*delete"
+    category: "post_deletion_retention"
+    severity: "critical"
+  
+  # AI & Machine Learning
+  - word: "train.*models?"
+    category: "ai_training"
+    severity: "critical"
+  
+  - word: "machine.*learning.*your.*content"
+    category: "ml_data_usage"
+    severity: "critical"
+  
+  # Meta Products Integration
+  - word: "instagram.*whatsapp.*facebook"
+    category: "cross_platform_data"
+    severity: "high"
+  
+  - word: "meta.*companies?.*share"
+    category: "family_sharing"
+    severity: "high"

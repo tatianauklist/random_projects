@@ -1,0 +1,78 @@
+exclusions:
+  # Intellectual Property
+  - word: "you.*grant.*us.*license"
+    category: "content_licensing"
+    severity: "high"
+  
+  - word: "royalty[- ]free"
+    category: "royalty_terms"
+    severity: "medium"
+  
+  - word: "worldwide.*license"
+    category: "global_rights"
+    severity: "high"
+  
+  - word: "perpetual.*license"
+    category: "permanent_license"
+    severity: "critical"
+  
+  - word: "irrevocable"
+    category: "irrevocable_rights"
+    severity: "critical"
+  
+  # User Content
+  - word: "user.*content.*ownership"
+    category: "content_ownership"
+    severity: "high"
+  
+  - word: "reproduce.*distribute.*modify"
+    category: "content_modification"
+    severity: "high"
+  
+  - word: "publicly.*display"
+    category: "public_sharing"
+    severity: "medium"
+  
+  # Design Assets
+  - word: "free.*elements?"
+    category: "free_content_terms"
+    severity: "low"
+  
+  - word: "pro.*elements?"
+    category: "paid_content_terms"
+    severity: "medium"
+  
+  - word: "brand.*kit"
+    category: "brand_data"
+    severity: "medium"
+  
+  # Commercial Use
+  - word: "commercial.*purposes?"
+    category: "commercial_rights"
+    severity: "high"
+  
+  - word: "resell.*redistribute"
+    category: "redistribution_limits"
+    severity: "medium"
+  
+  # Data Usage
+  - word: "improve.*our.*services?"
+    category: "service_improvement"
+    severity: "medium"
+  
+  - word: "analytics.*data"
+    category: "usage_analytics"
+    severity: "medium"
+  
+  - word: "design.*preferences?"
+    category: "behavioral_tracking"
+    severity: "medium"
+  
+  # Account & Teams
+  - word: "team.*admin.*access"
+    category: "admin_privileges"
+    severity: "medium"
+  
+  - word: "workspace.*content"
+    category: "shared_workspace"
+    severity: "medium"
