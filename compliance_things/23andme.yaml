@@ -1,0 +1,24 @@
+exclusions:
+  - word: "sell(ing)?.*genetic.*(data|information)"
+    severity: critical
+    category: genetic_data_sharing
+
+  - word: "retain(ed)? .*(indefinitely|permanently|forever)"
+    severity: critical
+    category: data_retention
+
+  - word: "(genetic|DNA) .*(data|samples|information) retain(ed)?"
+    severity: high
+    category: genetic_data_handling
+  
+  - word: "(cannot|may not|unable to|do not) .*(opt out|withdraw|delete)"
+    severity: critical
+    category: consent
+
+  - word: "(opt out|withdraw|delete).*(not permitted|not available|not possible|cannot)"
+    severity: critical
+    category: consent
+
+  - word: "(irrevocable|permanent|perpetual).*(consent|authorization|agreement)"
+    severity: critical
+    category: consent

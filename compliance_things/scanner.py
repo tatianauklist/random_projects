@@ -7,10 +7,16 @@ def check_exclusions(document,exclusions):
     for line in document:
         for rule_item in exclusions:
             word = rule_item["word"]
+            category = rule_item["category"]
+            severity = rule_item["severity"]
             if re.search(word,line):
                 if word not in compliance_flags:
-                    compliance_flags[word] = []
-                compliance_flags[word].append(line)
+                    compliance_flags[word] = {
+                        "category": category,
+                        "severity": severity,
+                        "lines": []
+                    }
+                compliance_flags[word]["lines"].append(line)
     return compliance_flags
 
 # value getter
@@ -41,11 +47,19 @@ def sort_results(results,exclusions):
 # Exact word count breakdown
 def word_list(results,exclusions):
     wordList = {}
-    for word, lines in results.items():
-        for rule_item in exclusions:
-            if rule_item["word"] == word:
-                if word not in wordList:
-                    wordList[word] = 0
-                wordList[word] += 1
-    sorted_wordList =dict(sorted(wordList.items(),key=lambda x:x[1],reverse=True))
-    return sorted_wordList
+    for word,data in results.items():
+        category = data["category"]
+        severity = data["severity"]
+        lines = data["lines"]
+        count = len(lines)
+        if word not in wordList:
+            wordList[word] = {
+                        "category": category,
+                        "severity": severity,
+                        "count": 0
+                    }
+        if count > 0:
+            wordList[word]["category"]= category
+            wordList[word]["severity"] = severity
+            wordList[word]["count"]= count
+    return wordList
