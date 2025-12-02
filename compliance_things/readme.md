@@ -94,8 +94,5 @@ Found a category of problematic language that should be flagged? Add it to a rul
 
 ---
 
-<<<<<<< HEAD
 **Built because "I should check this for compliance issues" and "I will actually check this for compliance issues" are very different things.**
-=======
-**Built because "I should check this for compliance issues" and "I will actually check this for compliance issues" are very different things.**
->>>>>>> 093b21346902b38e83ca920ed3fe7ef0caa889c5
+
