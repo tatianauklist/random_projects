@@ -1,9 +1,8 @@
-import re
 import yaml
 from scanner import check_exclusions, value_getter, sort_results, word_list
-from collections import Counter
+import os
 from datetime import datetime
-from reporting import format_summary_table, build_word_table
+from reporting import format_summary_table, build_word_table, detailed_report, report_exporter
 
 intro = "Press any key to start the scan or press 'x' to exit"
 boxing = len(intro)
@@ -57,7 +56,30 @@ else:
     print("Word Breakdown")
     for i in build_word_table(wordList):
         print(i)
+    detailed = input("Would you like to see a detailed report?\n1. Yes\n2. No\n")
+    if detailed == '2':
+        print("Goodbye!")
+    else:
+        for i in detailed_report(results):
+            print(i)
+        printReport = input("Would you like to export the full report? (Y/N)\n").lower()
+        if printReport == "y":
+            date_only = datetime.now().strftime("%Y_%m_%d")
+            filepath = f"compliance_report_{date_only}.txt"
+            if os.path.exists(filepath):
+                date_time = datetime.now().strftime("%Y_%m_%d_%H_%M")
+                filepath = f"compliance_report_{date_time}.txt"
+            print(f"Default Report Name: {filepath}")
+
+            try:
+                with open(filepath,"w") as f:
+                    for line in report_exporter(category_breakdown,severity_breakdown,results):
+                        f.write(line +"\n")
+                    print("export complete!")
+
+            except FileExistsError:
+                print(f"Error writing file name: {f}")
 
     
-    
+   
     

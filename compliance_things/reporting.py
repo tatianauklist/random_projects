@@ -1,3 +1,10 @@
+import re
+
+def highlight(match_obj):
+    match = match_obj.group()
+    sentence = f"\033[1m{match}\033[0m"
+    return sentence
+
 # One table at a time    
 def format_summary_table(severity_breakdown,category_breakdown):
     title1 = "Severity"
@@ -90,3 +97,29 @@ def build_word_table(wordList):
     
     #return  cat_count
     
+def detailed_report(results):
+    results_items = list(results.items())
+    yield "==========Results=========="
+    yield " "
+    for word, data in results_items:
+        category = data["category"]
+        yield f"FLAG: {word}\nCATEGORY: {category}\n"
+        for text_line in data["lines"]:
+            match_sub = re.sub(word,highlight,text_line)
+            yield match_sub
+
+def report_exporter(category_breakdown,severity_breakdown,results):
+    yield " "
+    yield "Category Breakdown:"
+    for category, count in category_breakdown.items():
+        yield f"{category}: {count}"
+    yield " "
+    yield "Severity Breakdown:"
+    for severity, count in severity_breakdown.items():
+        yield f"{severity}: {count}"
+    yield " "
+    for word, data in results.items():
+        category = data["category"]
+        yield f"{word}: {category}"
+        for text_line in data["lines"]:
+            yield text_line
