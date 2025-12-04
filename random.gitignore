@@ -1,0 +1,13 @@
+.env
+*.env
+secrets.env
+.env.*.local
+
+__pycache__/
+venv/
+env/
+ENV/
+.venv
+
+.vscode/
+.DS_Store
