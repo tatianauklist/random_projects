@@ -54,5 +54,5 @@ if st.button("Get Holidays"):
             
         else:  # <-- ADD THIS TOO (for when getCountryCode fails)
                 st.error(response["error"])
-else:
+    else:
         st.warning("Please enter both country and year!")
