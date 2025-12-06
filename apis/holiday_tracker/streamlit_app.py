@@ -17,9 +17,7 @@ if st.button("Get Holidays"):
             holidayList = get_holidays(countryCode,year)
             final = gui_formatter(holidayList)
 
-            if "error" in final:
-                st.warning(final["error"])
-            else:
+            if isinstance(final,dict) and "holidays" in final:
                 col1, col2 = st.columns([3,1])
                 for holiday in final["holidays"]:
                     if holiday["isToday"]:
@@ -46,5 +44,15 @@ if st.button("Get Holidays"):
             #st.write(countryName,countryCode,year)
             #st.write(final)
 
-    else:
+            else:
+                if isinstance(final, str):
+                        st.warning(final)
+                elif isinstance(final, dict) and "error" in final:
+                        st.warning(final["error"])
+                else:
+                        st.error("Unexpected response format")
+            
+        else:  # <-- ADD THIS TOO (for when getCountryCode fails)
+                st.error(response["error"])
+else:
         st.warning("Please enter both country and year!")
