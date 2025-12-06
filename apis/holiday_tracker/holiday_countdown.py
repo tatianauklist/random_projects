@@ -78,9 +78,9 @@ def format_results(holiday_data):
                 foundFutureHoliday = True
                 countdown = (holidayDate - today).days
                 if holidayName not in localName:
-                    results_string = f"{holidayName} is in {countdown} days on {holidayDate}\nGlobal Holidays: {globalHoliday}\nOff Segment: {offSegment}\n"
+                    results_string = f"- {holidayName} ({localName}) is in {countdown} days on {holidayDate}\n"
                 else:  
-                    results_string = f"{holidayName} ({localName}is in {countdown} days on {holidayDate}\nGlobal Holidays: {globalHoliday}\nOff Segment: {offSegment}\n"
+                    results_string = f"- {holidayName} is in {countdown} days on {holidayDate}\n"
                 results_string += f"Global: {globalHoliday} | Type: {offSegment}\n"
                 results.append(results_string)
             elif holidayDate == today:
