@@ -30,13 +30,13 @@ if st.button("Get Holidays"):
                             with col1:
                                 if holiday["name"] != holiday["localName"]:
                                       st.header(f"🎉 {holiday['name']}")
-                                      st.caption(f"Local Name: {holiday["localName"]}")
+                                      st.caption(f"Local Name: {holiday['localName']}")
                                 else:
                                      st.header(f"🎉 {holiday['name']}")
                             with col2:
                                  st.metric("Countdown",f"{holiday['countdown']} days")
                             with st.expander("Details"):
-                                st.write(f"📍**Local Name:** {holiday["localName"]}")
+                                st.write(f"📍**Local Name:** {holiday['localName']}")
                                 st.write(f"📅 **Date:** {holiday['date'].strftime('%B %d, %Y')}")
                                 st.write(f"🌍 **Global Holiday:** {'Yes' if holiday['global'] else 'No'}")
                                 st.write(f"🏷️ **Type:** {', '.join(holiday['types'])}")
