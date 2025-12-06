@@ -1,4 +1,8 @@
 import streamlit as st
+import sys
+import os
+
+sys.path.insert(0,os.path.dirname(__file__))
 from holiday_countdown import getCountryCode,get_holidays,format_results, gui_formatter
 
 st.title("Holiday Countdown ⏳")
