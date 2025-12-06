@@ -90,4 +90,35 @@ def format_results(holiday_data):
             return f"All holidays have passed for this year"
             
     return "\n".join(results)
+
+def gui_formatter(holiday_data):
+    if not holiday_data["success"]:
+        return holiday_data["error"]
+    data = holiday_data["data"]
+    today = datetime.now().date()
+    results = []
+    foundFutureHoliday = False
+    for holiday in data:
+            holidayDate = datetime.strptime(holiday["date"], "%Y-%m-%d").date()
+            holidayName = holiday["name"]
+            holidayType = holiday["types"]
+            globalHoliday = holiday["global"]
+            offSegment = holiday["types"]
+            localName = holiday["localName"]
+            if holidayDate >= today:
+                countdown = (holidayDate - today).days
+                foundFutureHoliday = True
+                results.append({
+                        "name": holiday["name"],
+                        "localName": holiday["localName"],
+                        "date": holidayDate,
+                        "countdown": countdown,
+                        "global": holiday["global"],
+                        "types": holiday["types"],
+                        "isToday": holidayDate == today
+                    })
+    if not foundFutureHoliday:
+        return {"Error": "All holidays have passed for this year"}
+    return {"success": True, "holidays": results}
+
         
