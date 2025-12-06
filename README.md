@@ -5,6 +5,11 @@ A collection of weird, specific tools that solve problems you didn't know you ha
 ## What's Here 📦
 Projects built on the principle that the best way to learn is to make things that are slightly ridiculous but surprisingly practical.
 
+- [Holiday Tracker](https://publicholidayhero.streamlit.app/)
+- [Holiday Tracker Repo](https://github.com/tatianauklist/random_projects/tree/main/apis/holiday_tracker)
+- [Read the Terms Repo](https://github.com/tatianauklist/random_projects/tree/main/compliance_things)
+
+
 Each folder contains something different - automation scripts, text analyzers, data processors, or whatever seemed like a good idea at the time. Some solve real problems. 
 
 Some are just fun to build. Most are somewhere in between.
