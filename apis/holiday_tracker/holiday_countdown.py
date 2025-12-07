@@ -118,7 +118,7 @@ def gui_formatter(holiday_data):
                         "isToday": holidayDate == today
                     })
     if not foundFutureHoliday:
-        return {"Error": "All holidays have passed for this year"}
+        return {"error": "All holidays have passed for this year for ☹️"}
     return {"success": True, "holidays": results}
 
         
