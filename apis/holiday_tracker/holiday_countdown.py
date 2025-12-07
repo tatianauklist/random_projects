@@ -7,7 +7,7 @@ def getCountryCode(countryName):
     noDataCodes = [204,404]
     accessCodes = [401,403]
     badRequests = [500,502,503]
-    url = f"https://restcountries.com/v3.1/name/{countryName}"
+    url = f"https://restcountries.com/v3.1/name/{countryName}?fullText=true"
     results = requests.get(url)
     statusCode = results.status_code
     try: 
