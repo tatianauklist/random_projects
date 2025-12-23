@@ -1,0 +1,22 @@
+services:
+  sheets:
+    version: "v4"
+    scopes:
+      read: "https://www.googleapis.com/auth/spreadsheets.readonly"
+      write: "https://www.googleapis.com/auth/spreadsheets"
+
+  gmail:
+    version: "v1"
+    scopes:
+      read: "https://www.googleapis.com/auth/gmail.readonly"
+      send: "https://www.googleapis.com/auth/gmail.send"
+
+  drive:
+    version: "v3"
+    scopes:
+      read: "https://www.googleapis.com/auth/drive.readonly"
+      write: "https://www.googleapis.com/auth/drive.file"
+
+credentials:
+  file: "credentials.json"
+  token: "token.json"

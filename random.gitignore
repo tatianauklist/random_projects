@@ -1,13 +1,228 @@
+# ============================================
+# CRITICAL: Google API Credentials & Tokens
+# ============================================
+credentials.json
+token.json
+**/credentials.json
+**/token.json
+client_secret*.json
+service-account*.json
+*.p12
+*.pem
+
+# ============================================
+# State & Data Files
+# ============================================
+processedEvents.json
+*.json
+!config.yaml.example
+!package.json
+
+# Config files that might contain secrets
+config.yaml
 .env
-*.env
-secrets.env
+.env.local
 .env.*.local
+secrets.yaml
 
+# ============================================
+# Python
+# ============================================
 __pycache__/
-venv/
-env/
-ENV/
-.venv
+*.py[cod]
+*$py.class
+*.so
+.Python
 
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# ============================================
+# IDEs & Editors
+# ============================================
+# VSCode
 .vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================
+# OS Files
+# ============================================
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Logs & Databases
+# ============================================
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.cache
+
+# ============================================
+# Cloud & Deployment
+# ============================================
+.gcloudignore
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# Project Specific
+# ============================================
+# Test files (if you don't want them in repo)
+test.py
+*_test.py
+scratch.py
+debug.py
+
+# Data files
+data/
+*.csv
+*.xlsx
+*.xls
+
+# Output files
+output/
+reports/
+exports/===========
