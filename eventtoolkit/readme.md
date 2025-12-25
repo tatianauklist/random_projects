@@ -49,7 +49,7 @@ Comprehensive logging with timestamps for debugging and monitoring:
 
 ```bash
 # Clone the repo
-git clone <your-repo-url>
+git clone <repo-url>
 cd events-toolkit
 
 # Install dependencies
