@@ -3,6 +3,7 @@ from infra import getAuthenticatedService
 import logging
 import json
 from datetime import datetime
+from eventprocessing import _processedEvents, getNextEvent, _getEventStats, buildReport
 
 ## configure logging so that the things get logged
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -14,13 +15,9 @@ RANGE = "REF!A2:F"
 service = getAuthenticatedService("sheets",access=["write"])
 results = service.spreadsheets().values().get(spreadsheetId=SHEETS_ID,range=RANGE).execute()
 
+data = results["values"]
 # checking for processed events
-if os.path.exists("processedEvents.json"):
-    with open("processedEvents.json","r") as f:
-        processedList = json.load(f)
-        processedEvents = set(processedList)
-else:
-    processedEvents = set()
+processedEvents = _processedEvents()
 
 
 if not results:
@@ -39,34 +36,26 @@ for row in results["values"]:
     else:
         processedEvents.add(eventID)
         newEvents += 1
-    eventDate = datetime.strptime(eventDate, "%m-%d-%Y")
-    today = datetime.now()
-    if eventDate > today:
-        if nextEvent is None or eventDate < nextEventDate:
-            nextEvent = eventID
-            nextEventDate = eventDate
-    if eventStatus not in statusCounts:
-        statusCounts[eventStatus.strip()] = 1
-    else:
-        statusCounts[eventStatus] += 1
-    if eventType not in typeCounts:
-        typeCounts[eventType] = 1
-    else:
-        typeCounts[eventType] += 1
-    logging.debug(f"Processing event: {eventID}, status: {eventStatus}, revenue: {eventRevenue}")
+logging.info(f"Getting Event Stats...")
+stats = _getEventStats(data)
+logging.info(f"Grabbing Next Event...")
+nextEvent = getNextEvent(data)
+logging.info(f"Building report...")
+report = buildReport(stats, nextEvent)
+logging.info(f"DONE")
+print(report)
 
+#logging.info(f"Done!, {len(results)} events processed.")
+#logging.info(f"Status Counts: {statusCounts}")
+#logging.info(f"Type Counts: {typeCounts}")
+#logging.info(f"New Events: {newEvents}")
+#logging.info(f"Skipped Events: {skippedEvents}")
+#if nextEvent is not None:
+#    logging.info(f"Next Event: {nextEvent} on {nextEventDate.strftime('%m-%d-%Y')}")
+#else:
+#    logging.info("No upcoming events found")
 
-logging.info(f"Done!, {len(results)} events processed.")
-logging.info(f"Status Counts: {statusCounts}")
-logging.info(f"Type Counts: {typeCounts}")
-logging.info(f"New Events: {newEvents}")
-logging.info(f"Skipped Events: {skippedEvents}")
-if nextEvent is not None:
-    logging.info(f"Next Event: {nextEvent} on {nextEventDate.strftime('%m-%d-%Y')}")
-else:
-    logging.info("No upcoming events found")
-
-logging.info(f"Writing results to file...")
-with open("processedEvents.json","w") as f:
-    json.dump(list(processedEvents),f)
-logging.info(f"{newEvents} events processed and added to processedEvents.json.")
+#logging.info(f"Writing results to file...")
+#with open("processedEvents.json","w") as f:
+#    json.dump(list(processedEvents),f)
+#logging.info(f"{newEvents} events processed and added to processedEvents.json.")
