@@ -3,7 +3,7 @@ from infra import getAuthenticatedService
 import logging
 import json
 from datetime import datetime
-from eventprocessing import _processedEvents, getNextEvent, _getEventStats, buildReport
+from eventprocessing import _processedEvents, getNextEvent, _getEventStats, buildReport, saveReport
 
 ## configure logging so that the things get logged
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -16,34 +16,28 @@ service = getAuthenticatedService("sheets",access=["write"])
 results = service.spreadsheets().values().get(spreadsheetId=SHEETS_ID,range=RANGE).execute()
 
 data = results["values"]
-# checking for processed events
-processedEvents = _processedEvents()
-
-
 if not results:
     logging.warning("No data found.")
-statusCounts = {}
-typeCounts = {}
-newEvents = 0
-skippedEvents = 0
-nextEvent = None
-nextEventDate = None
-for row in results["values"]:
-    eventDate, eventID, eventSize,eventType, eventStatus, eventRevenue = row
-    if eventID in processedEvents:
-        skippedEvents += 1
-        continue
-    else:
-        processedEvents.add(eventID)
-        newEvents += 1
+logging.info(f"Processing new events for sheet {SHEETS_ID}...")
+processedEvents = _processedEvents(data)
 logging.info(f"Getting Event Stats...")
 stats = _getEventStats(data)
 logging.info(f"Grabbing Next Event...")
 nextEvent = getNextEvent(data)
 logging.info(f"Building report...")
-report = buildReport(stats, nextEvent)
+report = buildReport(stats, nextEvent,processedEvents)
 logging.info(f"DONE")
+print("\n")
 print(report)
+save = input("Would you like to save the report for your timeline? (y/n): ")
+
+if "y" in save.lower():
+    logging.info(f"Saving report as report.txt...")
+    saveReport(report)
+    logging.info(f"DONE")
+
+else:
+    logging.info(f"Thanks for using. Goodbye!")
 
 #logging.info(f"Done!, {len(results)} events processed.")
 #logging.info(f"Status Counts: {statusCounts}")
