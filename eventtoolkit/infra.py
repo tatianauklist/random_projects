@@ -5,6 +5,7 @@ from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import logging
+from google.oauth2 import service_account
 from typing import Union, List, Any, Dict
 import yaml
 
@@ -27,22 +28,12 @@ def _validateConfig(config):
 def _getValidCredentials(scopes: list[str],config:dict) -> Credentials:
     credentials = config["credentials"]
     file = credentials["file"]
-    token = credentials["token"]
-    creds = None
+    try:
+        creds = service_account.Credentials.from_service_account_file(file, scopes=scopes)
 
-    if os.path.exists(token):
-        creds = Credentials.from_authorized_user_file(token, scopes)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(file, scopes)
-            creds = flow.run_local_server(port=0)
-
-        # save creds for next run
-    with open(token, "w") as token_file:
-         token_file.write(creds.to_json())
+    except FileNotFoundError:
+        logging.error("Credentials not found")
+        raise FileNotFoundError("Credentials not found")
 
     return creds
 
