@@ -166,7 +166,7 @@ The script maintains state in `processedEvents.json`:
 - [x] Proper logging with timestamps
 
 ### Phase 2: Cloud Deployment 🚧
-- [ ] Service account setup
+- [x] Service account setup
 - [ ] Migrate state to Cloud Storage/Firestore
 - [ ] Deploy to Cloud Run
 - [ ] Set up Cloud Scheduler for automation
