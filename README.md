@@ -15,6 +15,7 @@ Some are just fun to build. Most are somewhere in between.
 - [Holiday Hero App](https://publicholidayhero.streamlit.app/)
 - [Holiday Hero Repo](https://github.com/tatianauklist/random_projects/tree/main/apis/holiday_tracker)
 - [Read the Terms Repo](https://github.com/tatianauklist/random_projects/tree/main/compliance_things)
+- [Event Toolkit](https://github.com/tatianauklist/random_projects/tree/main/eventtoolkit)
 
 
 ## Philosophy 💭
