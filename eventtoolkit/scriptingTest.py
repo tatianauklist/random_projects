@@ -1,5 +1,5 @@
 import os
-from infra import getAuthenticatedService
+from infra import getAuthenticatedService, exportToSheet, _load_config
 import logging
 import json
 from datetime import datetime
@@ -8,12 +8,15 @@ from eventprocessing import _processedEvents, getNextEvent, _getEventStats, buil
 ## configure logging so that the things get logged
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-SHEETS_ID = input("Enter sheet ID: ")
-RANGE = "REF!A2:F"
+config = _load_config()
+SHEETS_ID = config["appConfig"]["spreadsheet_id"]
+DATA_RANGE = config["appConfig"]["data_range"]
+REPORT_RANGE = config["appConfig"]["report_range"]
+
 
 #Checking to see if there are valid path and assigns the creds
 service = getAuthenticatedService("sheets",access=["write"])
-results = service.spreadsheets().values().get(spreadsheetId=SHEETS_ID,range=RANGE).execute()
+results = service.spreadsheets().values().get(spreadsheetId=SHEETS_ID,range=DATA_RANGE).execute()
 
 data = results["values"]
 if not results:
@@ -29,15 +32,9 @@ report = buildReport(stats, nextEvent,processedEvents)
 logging.info(f"DONE")
 print("\n")
 print(report)
-save = input("Would you like to save the report for your timeline? (y/n): ")
+logging.info(f"Updating Google Sheet...")
+exportToSheet(stats, processedEvents, service, SHEETS_ID, REPORT_RANGE)
 
-if "y" in save.lower():
-    logging.info(f"Saving report as report.txt...")
-    saveReport(report)
-    logging.info(f"DONE")
-
-else:
-    logging.info(f"Thanks for using. Goodbye!")
 
 #logging.info(f"Done!, {len(results)} events processed.")
 #logging.info(f"Status Counts: {statusCounts}")

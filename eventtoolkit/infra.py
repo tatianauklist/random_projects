@@ -8,6 +8,9 @@ import logging
 from google.oauth2 import service_account
 from typing import Union, List, Any, Dict
 import yaml
+from datetime import datetime
+
+
 
 def _load_config():
     try:
@@ -59,6 +62,28 @@ def getAuthenticatedService(serviceName: str, access: list=None, config: str="co
 
     except HttpError as err:
         logging.error(f"Failed to connect to Google Sheets API: {err}")
+
+
+def exportToSheet(stats: dict, processedEvents: dict, service ,sheetsID: str, REPORT_RANGE):
+    today = datetime.today().strftime("%m-%d-%Y")
+    row0 = ["Date"] + ["Max Revenue"] + ["New Events"] + list(stats['status counts'].keys()) + list(stats['type counts'].keys())
+    row1 = [today] + [stats["max revenue"]] + [processedEvents["new events"]] + list(stats['status counts'].values()) + list(stats['type counts'].values())
+
+    body = {'values': [row1]}
+    try:
+        results = (service.spreadsheets()
+                   .values()
+                   .append(
+                        spreadsheetId=sheetsID,
+                        range=REPORT_RANGE,
+                        valueInputOption='USER_ENTERED',
+                        body=body,
+            ).execute()
+        )
+        return logging.info("Dashboard successfully updated in Google Sheets")
+    except HttpError as err:
+        logging.error(f"Failed to connect to Google Sheets API: {err}")
+        raise HttpError("Failed to connect to Google Sheets API")
 
 
 

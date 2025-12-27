@@ -20,3 +20,8 @@ services:
 credentials:
   file: "credentials.json"
   token: "token.json"
+
+appConfig:
+    spreadsheet_id: "1mpB5Vead4C9s2wQBBlhQOeGqrMtATcK_9QsLUhHYhFM"
+    data_range: "REF!A2:F"
+    report_range: "Report!A2:F"
