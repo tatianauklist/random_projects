@@ -1,16 +1,25 @@
 import json
 import os
 from datetime import datetime
+from google.cloud import storage
+import logging
 
+def _serializeSets(obj):
+    if isinstance(obj, set):
+        return list(obj)
+    return obj
 
-def _processedEvents(data:list) -> dict:
-    if os.path.exists("processedEvents.json"):
-        with open("processedEvents.json", "r") as f:
-            try:
-                processedList = json.load(f)
-                processedEvents = set(processedList)
-            except json.decoder.JSONDecodeError:
-                processedEvents = set()
+client = storage.Client()
+def _processedEvents(data:list,bucketName) -> dict:
+    bucket = client.bucket(bucketName)
+    blob = bucket.blob("processedEvents.json")
+    if blob.exists():
+        content = blob.download_as_string()
+        try:
+            processedList = json.loads(content)
+            processedEvents = set(processedList)
+        except json.decoder.JSONDecodeError:
+                raise ValueError("Unable to load processed events")
     else:
         processedEvents = set()
     newEvents = 0
@@ -22,9 +31,10 @@ def _processedEvents(data:list) -> dict:
         else:
             processedEvents.add(eventID)
             newEvents += 1
-    with open("processedEvents.json", "w") as f:
-        processedList = list(processedEvents)
-        json.dump(processedList, f)
+
+    processedEventsJSON = json.dumps(processedEvents, default=_serializeSets)
+    blob.upload_from_string(processedEventsJSON)
+    logging.info("Processed Events successfully uploaded")
 
     return {"new events": newEvents, "skipped events": skippedEvents}
 
@@ -98,3 +108,6 @@ def saveReport(report: str):
     with open("report.txt", "a") as f:
         f.write(report)
 
+
+def exportToSheet(stats: dict, nextEvent: dict, processedEvents: dict):
+    today = datetime.today().strftime("%m-%d-%Y")
