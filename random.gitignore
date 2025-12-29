@@ -225,4 +225,5 @@ data/
 # Output files
 output/
 reports/
-exports/===========
+exports/===========/.idea/
+/__pycache__/
