@@ -1,0 +1,21 @@
+projectName: security-workshop
+owner:
+  email: john.doe@companyemail.com
+  name: John Doe
+participants:
+  flights_booked: true
+  hotel_booked: true
+  invites_sent: false
+  staff_logistics: true
+program:
+  documentation: false
+  scope: true
+  speakers: true
+  targets_acquired: true
+secondary:
+  after_party: false
+  av: false
+  awards: true
+  swag: true
+  tools: true
+  venue: false
