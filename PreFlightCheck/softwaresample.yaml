@@ -1,0 +1,19 @@
+projectName: "v2.0-release"
+owner:
+  name: Jane Smith
+  email: jane@example.com
+
+infrastructure:
+  database_migration: true
+  cdn_configured: false
+  monitoring_alerts: true
+
+security:
+  penetration_test: true
+  security_review: false
+  secrets_rotated: true
+
+readiness:
+  feature_flags_set: true
+  rollback_plan: false
+  load_testing: true
