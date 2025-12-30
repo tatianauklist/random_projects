@@ -8,8 +8,8 @@ infrastructure:
   monitoring_alerts: true
 security:
   penetration_test: true
-  security_review: false
-  secrets_rotated: false
+  security_review: true
+  secrets_rotated: true
 readiness:
   feature_flags_set: true
   rollback_plan: true

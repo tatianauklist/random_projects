@@ -5,7 +5,7 @@ owner:
 participants:
   flights_booked: true
   hotel_booked: true
-  invites_sent: false
+  invites_sent: true
   staff_logistics: true
 program:
   documentation: false
@@ -13,9 +13,9 @@ program:
   speakers: true
   targets_acquired: true
 secondary:
-  after_party: false
+  after_party: true
   av: false
   awards: true
   swag: true
   tools: true
-  venue: false
+  venue: true
