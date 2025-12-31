@@ -1,229 +1,198 @@
 # ============================================
-# CRITICAL: Google API Credentials & Tokens
+# CREDENTIALS & SECRETS
 # ============================================
-credentials.json
-token.json
-**/credentials.json
-**/token.json
-client_secret*.json
-service-account*.json
-*.p12
-*.pem
 
-# ============================================
-# State & Data Files
-# ============================================
-processedEvents.json
-*.json
-!config.yaml.example
-!package.json
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+!**/.env.template
+**/.envrc
 
-# Config files that might contain secrets
-config.yaml
-.env
-.env.local
-.env.*.local
-secrets.yaml
+# API Keys & Secrets
+**/secrets.*
+**/secret.*
+**/*secret*
+**/*secrets*
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.cer
+**/*.crt
+**/*.der
 
-# ============================================
-# Python
-# ============================================
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# Distribution / packaging
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Unit test / coverage
-.pytest_cache/
-.coverage
-.coverage.*
-htmlcov/
-.tox/
-.nox/
-coverage.xml
-*.cover
-.hypothesis/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb
-
-# pyenv
-.python-version
-
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder
-.spyderproject
-.spyproject
-
-# Rope
-.ropeproject
-
-# mkdocs
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre
-.pyre/
+# Private keys
+**/id_rsa
+**/id_dsa
+**/id_ed25519
+**/id_ecdsa
+**/*.ppk
 
 # ============================================
-# IDEs & Editors
+# CONFIGURATION FILES WITH CREDENTIALS
 # ============================================
-# VSCode
-.vscode/
-*.code-workspace
-.history/
 
-# PyCharm
-.idea/
-*.iml
-*.iws
-*.ipr
+# AWS
+**/.aws/credentials
+**/.aws/config
+**/aws-credentials.*
 
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
+# Google Cloud
+**/gcp-credentials.json
+**/google-credentials.json
+**/*-credentials.json
+**/service-account*.json
 
-# Vim
-*.swp
-*.swo
-*~
-.netrwhist
+# Azure
+**/azure-credentials.*
+**/.azure/
 
-# Emacs
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
+# General credentials
+**/credentials.*
+**/credential.*
+**/*credentials*
+**/auth.*
+**/authentication.*
 
 # ============================================
-# OS Files
+# TOKENS & PASSWORDS
 # ============================================
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
 
-# Windows
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-*.stackdump
-[Dd]esktop.ini
-$RECYCLE.BIN/
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-*.lnk
-
-# Linux
-*~
-.directory
-.Trash-*
+**/token
+**/tokens
+**/*.token
+**/access-token
+**/refresh-token
+**/*password*
+**/*passwd*
+**/htpasswd
 
 # ============================================
-# Logs & Databases
+# DATABASE & DATA FILES
 # ============================================
-*.log
-*.sqlite
-*.sqlite3
-*.db
+
+# SQLite databases
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# Database dumps
+**/*.sql
+**/*.dump
+**/*.bak
 
 # ============================================
-# Temporary Files
+# CLOUD & HOSTING SERVICES
 # ============================================
-*.tmp
-*.temp
-*.bak
-*.swp
-*.swo
-*.cache
 
-# ============================================
-# Cloud & Deployment
-# ============================================
-.gcloudignore
-.terraform/
-*.tfstate
-*.tfstate.backup
+# Terraform
+**/*.tfvars
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform/
 
 # Docker
-docker-compose.override.yml
-.dockerignore
+**/docker-compose.override.yml
+**/docker-compose.prod.yml
+
+# Kubernetes
+**/kube-config
+**/.kube/config
+
+# Heroku
+**/.netrc
 
 # ============================================
-# Project Specific
+# PROGRAMMING LANGUAGE SPECIFIC
 # ============================================
-# Test files (if you don't want them in repo)
-test.py
-*_test.py
-scratch.py
-debug.py
 
-# Data files
-data/
-*.csv
-*.xlsx
-*.xls
+# Python
+**/*.pyc
+**/__pycache__/
+**/venv/
+**/.venv/
+**/env/
 
-# Output files
-output/
-reports/
-exports/===========/.idea/
-/__pycache__/
+# Node.js
+**/node_modules/
+**/.npmrc
+**/.yarnrc
+
+# Ruby
+**/.bundle/
+**/vendor/bundle/
+
+# ============================================
+# IDE & EDITOR FILES
+# ============================================
+
+# JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
+**/.idea/
+
+# VS Code
+**/.vscode/settings.json
+**/.vscode/launch.json
+
+# ============================================
+# CERTIFICATES & KEYSTORES
+# ============================================
+
+**/*.keystore
+**/*.jks
+**/*.truststore
+**/*.p7b
+**/*.spc
+**/*.p8
+
+# ============================================
+# BACKUP & TEMPORARY FILES
+# ============================================
+
+**/*~
+**/*.swp
+**/*.swo
+**/*.bak
+**/*.tmp
+**/*.temp
+**/*.old
+**/*.orig
+
+# ============================================
+# LOGS (may contain sensitive info)
+# ============================================
+
+**/*.log
+**/logs/
+**/*.log.*
+
+# ============================================
+# OS SPECIFIC
+# ============================================
+
+# macOS
+**/.DS_Store
+**/DS_Store
+**/.AppleDouble
+**/.LSOverride
+**/.DocumentRevisions-V100
+**/.fseventsd
+**/.Spotlight-V100
+**/.TemporaryItems
+**/.Trashes
+**/.VolumeIcon.icns
+**/.com.apple.timemachine.donotpresent
+
+# Windows
+**/Thumbs.db
+**/Thumbs.db:encryptable
+**/ehthumbs.db
+**/ehthumbs_vista.db
+**/*.stackdump
+**/Desktop.ini
+**/$RECYCLE.BIN/
+
+# Linux
+**/.directory
+**/.Trash-*
