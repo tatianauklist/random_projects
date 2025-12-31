@@ -1,0 +1,70 @@
+{
+  "projectName": "v2.0-release",
+  "infrastructure": {
+    "totalChecks": 3,
+    "completedChecks": 1,
+    "percentageCompleted": 33.33,
+    "checks": [
+      {
+        "check": "database_migration",
+        "value": false
+      },
+      {
+        "check": "cdn_configured",
+        "value": false
+      },
+      {
+        "check": "monitoring_alerts",
+        "value": true
+      }
+    ]
+  },
+  "security": {
+    "totalChecks": 3,
+    "completedChecks": 3,
+    "percentageCompleted": 100.0,
+    "checks": [
+      {
+        "check": "penetration_test",
+        "value": true
+      },
+      {
+        "check": "security_review",
+        "value": true
+      },
+      {
+        "check": "secrets_rotated",
+        "value": true
+      }
+    ]
+  },
+  "readiness": {
+    "totalChecks": 3,
+    "completedChecks": 3,
+    "percentageCompleted": 100.0,
+    "checks": [
+      {
+        "check": "feature_flags_set",
+        "value": true
+      },
+      {
+        "check": "rollback_plan",
+        "value": true
+      },
+      {
+        "check": "load_testing",
+        "value": true
+      }
+    ]
+  },
+  "blockers": [
+    {
+      "check": "database_migration",
+      "category": "infrastructure"
+    },
+    {
+      "check": "cdn_configured",
+      "category": "infrastructure"
+    }
+  ]
+}

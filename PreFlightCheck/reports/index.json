@@ -1,0 +1,51 @@
+{
+  "projects": [
+    {
+      "projectName": "v2.0-release",
+      "categories": {
+        "infrastructure": {
+          "completedChecks": 1,
+          "percentageCompleted": 33.33,
+          "totalChecks": 3
+        },
+        "security": {
+          "completedChecks": 3,
+          "percentageCompleted": 100.0,
+          "totalChecks": 3
+        },
+        "readiness": {
+          "completedChecks": 3,
+          "percentageCompleted": 100.0,
+          "totalChecks": 3
+        }
+      },
+      "blockers": {
+        "infrastructure": 2
+      }
+    },
+    {
+      "projectName": "security-workshop",
+      "categories": {
+        "participants": {
+          "completedChecks": 4,
+          "percentageCompleted": 100.0,
+          "totalChecks": 4
+        },
+        "program": {
+          "completedChecks": 3,
+          "percentageCompleted": 75.0,
+          "totalChecks": 4
+        },
+        "secondary": {
+          "completedChecks": 5,
+          "percentageCompleted": 83.33,
+          "totalChecks": 6
+        }
+      },
+      "blockers": {
+        "program": 1,
+        "secondary": 1
+      }
+    }
+  ]
+}

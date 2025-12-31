@@ -1,0 +1,90 @@
+{
+  "projectName": "security-workshop",
+  "participants": {
+    "totalChecks": 4,
+    "completedChecks": 4,
+    "percentageCompleted": 100.0,
+    "checks": [
+      {
+        "check": "flights_booked",
+        "value": true
+      },
+      {
+        "check": "hotel_booked",
+        "value": true
+      },
+      {
+        "check": "invites_sent",
+        "value": true
+      },
+      {
+        "check": "staff_logistics",
+        "value": true
+      }
+    ]
+  },
+  "program": {
+    "totalChecks": 4,
+    "completedChecks": 3,
+    "percentageCompleted": 75.0,
+    "checks": [
+      {
+        "check": "documentation",
+        "value": false
+      },
+      {
+        "check": "scope",
+        "value": true
+      },
+      {
+        "check": "speakers",
+        "value": true
+      },
+      {
+        "check": "targets_acquired",
+        "value": true
+      }
+    ]
+  },
+  "secondary": {
+    "totalChecks": 6,
+    "completedChecks": 5,
+    "percentageCompleted": 83.33,
+    "checks": [
+      {
+        "check": "after_party",
+        "value": true
+      },
+      {
+        "check": "av",
+        "value": false
+      },
+      {
+        "check": "awards",
+        "value": true
+      },
+      {
+        "check": "swag",
+        "value": true
+      },
+      {
+        "check": "tools",
+        "value": true
+      },
+      {
+        "check": "venue",
+        "value": true
+      }
+    ]
+  },
+  "blockers": [
+    {
+      "check": "documentation",
+      "category": "program"
+    },
+    {
+      "check": "av",
+      "category": "secondary"
+    }
+  ]
+}

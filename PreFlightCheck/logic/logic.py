@@ -1,6 +1,8 @@
 import yaml
 import glob
 import os
+from datetime import datetime
+import json
 
 def getAvailableProjects(configDir="configs/"):
     yamlFiles = glob.glob(f"{configDir}*.yaml")
@@ -23,7 +25,7 @@ def runInteractiveSession(projectName):
     updateDecision = input("Would you like to update anything in the checklist? (y/n)\n").lower()
     if updateDecision == "y":
         updateNumbers = [int(x) for x in input(
-            "Please enter the number of the items you'd like to update seperated by a coma: \n").split(",")]
+            "Please enter the number of the items you'd like to update separated by a coma: \n").split(",")]
         updatedData = updateChecklist(data, numberedCheck, updateNumbers)
         print("Updating checklist...")
         reportUpdated = renderHumanReport(updatedData)
@@ -33,6 +35,36 @@ def runInteractiveSession(projectName):
         saveChecklist(updatedData, filePath)
     else:
         print("No changes made to file. Goodbye!")
+
+def runAutomatedSession():
+    index = {"projects":[]}
+    date = datetime.today().strftime("%m-%d-%Y")
+    projects = getAvailableProjects()
+    os.makedirs("reports/",exist_ok=True)
+    for project in projects:
+        data, filePath = loadChecklist(project)
+        report = createReport(data)
+        projectName = report["projectName"]
+        projectEntry = {"projectName": projectName, "categories": {}, "blockers":{}}
+        for name, categoryData in report.items():
+            if name not in ["projectName", "blockers"]:
+                blockerCountByCategory = {}
+                for blocker in report["blockers"]:
+                    category = blocker["category"]
+                    if category not in blockerCountByCategory:
+                        blockerCountByCategory[category] = 1
+                    else:
+                        blockerCountByCategory[category] += 1
+                projectEntry["categories"][name] = {"completedChecks": categoryData["completedChecks"], "percentageCompleted": categoryData["percentageCompleted"], "totalChecks": categoryData["totalChecks"]}
+                projectEntry["blockers"] = blockerCountByCategory
+        index["projects"].append(projectEntry)
+        with open(f"reports/{project}_{date}_report.json","w") as f:
+            json.dump(report,f,indent=2)
+    with open("reports/index.json", "w") as f:
+        json.dump(index, f,indent=2)
+
+
+
 
 
 def saveChecklist(data, filePath):

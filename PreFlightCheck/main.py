@@ -1,4 +1,4 @@
-from logic.logic import runInteractiveSession, getAvailableProjects
+from logic.logic import runInteractiveSession, getAvailableProjects, runAutomatedSession
 import logging
 from logic.cli import parseArgs
 
@@ -12,6 +12,8 @@ def main():
             print(i)
         project = input("Which project would you like to check? ").lower().strip()
         runInteractiveSession(project)
+    else:
+        runAutomatedSession()
 
 if __name__ == "__main__":
     main()
