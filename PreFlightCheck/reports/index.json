@@ -1,50 +1,106 @@
 {
   "projects": [
     {
-      "projectName": "v2.0-release",
-      "categories": {
-        "infrastructure": {
-          "completedChecks": 1,
-          "percentageCompleted": 33.33,
-          "totalChecks": 3
+      "projectName": "litl-01",
+      "blockers": {
+        "email_invites_sent": {
+          "category": "participants",
+          "due_date": "2026-01-08",
+          "severity": "medium"
         },
-        "security": {
-          "completedChecks": 3,
-          "percentageCompleted": 100.0,
-          "totalChecks": 3
+        "hotel_booked": {
+          "category": "participants",
+          "due_date": "2026-01-23",
+          "severity": "medium"
         },
-        "readiness": {
-          "completedChecks": 3,
-          "percentageCompleted": 100.0,
-          "totalChecks": 3
+        "flights_booked": {
+          "category": "participants",
+          "due_date": "2026-01-23",
+          "severity": "medium"
+        },
+        "staff_flights": {
+          "category": "participants",
+          "due_date": "2026-01-23",
+          "severity": "medium"
+        },
+        "program_invites": {
+          "category": "program",
+          "due_date": "2026-02-07",
+          "severity": "medium"
+        },
+        "compliance_documents": {
+          "category": "program",
+          "due_date": "2026-02-02",
+          "severity": "high"
+        },
+        "scope": {
+          "category": "program",
+          "due_date": "2026-01-18",
+          "severity": "high"
+        },
+        "targets_acquired": {
+          "category": "program",
+          "due_date": "2026-02-07",
+          "severity": "high"
+        },
+        "documentation": {
+          "category": "program",
+          "due_date": "2026-02-07",
+          "severity": "medium"
+        },
+        "speakers": {
+          "category": "secondary",
+          "due_date": "2026-02-07",
+          "severity": "low"
+        },
+        "after_party": {
+          "category": "secondary",
+          "due_date": "2026-02-07",
+          "severity": "low"
+        },
+        "av": {
+          "category": "secondary",
+          "due_date": "2026-02-07",
+          "severity": "medium"
+        },
+        "awards": {
+          "category": "secondary",
+          "due_date": "2026-02-07",
+          "severity": "medium"
+        },
+        "swag": {
+          "category": "secondary",
+          "due_date": "2026-02-07",
+          "severity": "low"
+        },
+        "venue": {
+          "category": "secondary",
+          "due_date": "2026-01-23",
+          "severity": "high"
+        },
+        "food_and_beverage": {
+          "category": "secondary",
+          "due_date": "2026-02-07",
+          "severity": "medium"
         }
       },
-      "blockers": {
-        "infrastructure": 2
-      }
-    },
-    {
-      "projectName": "security-workshop",
-      "categories": {
+      "overdue": {},
+      "stats": {
         "participants": {
-          "completedChecks": 4,
-          "percentageCompleted": 100.0,
-          "totalChecks": 4
+          "completed": 0,
+          "percentage": 0.0,
+          "total_checks": 4
         },
         "program": {
-          "completedChecks": 3,
-          "percentageCompleted": 75.0,
-          "totalChecks": 4
+          "completed": 0,
+          "percentage": 0.0,
+          "total_checks": 5
         },
         "secondary": {
-          "completedChecks": 5,
-          "percentageCompleted": 83.33,
-          "totalChecks": 6
+          "completed": 0,
+          "percentage": 0.0,
+          "total_checks": 7
         }
-      },
-      "blockers": {
-        "program": 1,
-        "secondary": 1
       }
     }
   ]

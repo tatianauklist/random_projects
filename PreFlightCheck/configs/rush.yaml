@@ -1,0 +1,53 @@
+name: rush
+categories:
+  participants:
+    email_invites_sent:
+      due_date_offset: 45
+      severity: medium
+    hotel_booked:
+      due_date_offset: 30
+      severity: medium
+    flights_booked:
+      due_date_offset: 30
+      severity: medium
+    staff_flights:
+      due_date_offset: 30
+      severity: medium
+  program:
+    program_invites:
+      due_date_offset: 20
+      severity: medium
+    compliance_documents:
+      due_date_offset: 21
+      severity: high
+    scope:
+      due_date_offset: 30
+      severity: high
+    targets_acquired:
+      due_date_offset: 30
+      severity: high
+    documentation:
+      due_date_offset: 30
+      severity: medium
+  secondary:
+    speakers:
+      due_date_offset: 15
+      severity: low
+    after_party:
+      due_date_offset: 20
+      severity: low
+    av:
+      due_date_offset: 30
+      severity: medium
+    awards:
+      due_date_offset: 30
+      severity: medium
+    swag:
+      due_date_offset: 30
+      severity: low
+    venue:
+      due_date_offset: 30
+      severity: high
+    food_and_beverage:
+      due_date_offset: 30
+      severity: medium
