@@ -1,4 +1,5 @@
-from logic.logic import runInteractiveSession, getAvailableProjects, runAutomatedSession, createChecklist,createReport, loadChecklist, getNumberedChecks, renderHumanReport, loadIndex
+from logic.logic import runInteractiveSession, getAvailableProjects, runAutomatedSession, createChecklist, createReport, \
+    loadChecklist, getNumberedChecks, renderHumanReport, loadIndex, updateChecklist
 from logic.cli import parseArgs
 import yaml
 
@@ -23,10 +24,7 @@ def main():
         runAutomatedSession()
 
 if __name__ == "__main__":
-    index = loadIndex()
-    print(index.keys())
-    print(type(index.keys()))
-    print("What's IN index['projects']:", index["projects"])
+    main()
 
 
 

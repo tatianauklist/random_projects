@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ Title }}</title>
+</head>
+    <h1 style="text-align: center">Team Updates</h1>
+<body>
+    {% for project in posts.projects %}
+    <h2>{{ project.projectName }} - {{ project.count_down }} days</h2>
+    <h4> TOTAL BLOCKERS: {{ project.blockers|length }} </h4>
+    <details>
+        <summary><b>🚨 High Blockers: {{ project.high_blockers|length }} 🚨 </b></summary>
+        {% for name, data in project.high_blockers.items() %}
+        <p>{{ name }} ({{ data.category }})</p>
+        {% endfor %}
+    </details>
+    <details>
+        <summary><b>⚠️ Medium Blockers: {{ project.medium_blockers|length }} ⚠️</b> </summary>
+        {% for name, data in project.medium_blockers.items() %}
+        <p>{{ name }} ({{ data.category }})</p>
+        {% endfor %}
+    </details>
+    <details>
+        <summary><b>⏳ Low Blockers: {{ project.low_blockers|length }} ⏳</b></summary>
+        {% for name, data in project.low_blockers.items() %}
+        <p>{{ name }} ({{ data.category }})</p>
+        {% endfor %}
+    </details>
+    {% endfor %}
+</body>
+</html>

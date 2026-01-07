@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1 style="text-align: center">Welcome, {{ user.username }}</h1>
+    {% for project in posts.projects %}
+        <div><h2><b>{{ project.projectName}}</b> : {{ project.count_down}} days</h2></div>
+        <div><h3>Stats:</h3></div>
+        {% for category, data in project.stats.items() %}
+            <p>{{ category }}: {{ data. percentage }} % completed</p>
+        {% endfor %}
+        <details>
+            <summary><strong>Blockers: {{ project.blockers|length }}</strong></summary>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Severity</th>
+                </tr>
+                {% for name, data in project.blockers.items() %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ data.category }}</td>
+                    <td>{{ data.severity }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </details>
+    {% endfor %}
+</body>
+</html>

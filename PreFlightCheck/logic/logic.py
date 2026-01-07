@@ -121,10 +121,10 @@ def updateChecklist(data,numberedChecks,updateNumbers):
         if item in numberedChecks:
             menuItem = numberedChecks[item]
             currentValue = menuItem["completed"]
-            newValue = not menuItem["checkValue"]
+            newValue = not menuItem["completed"]
             category = menuItem["category"]
             checkName = menuItem["check"]
-            data[category][checkName] = newValue
+            data[category][checkName]["completed"] = newValue
 
     return data
 

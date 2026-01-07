@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ Title }}</title>
+</head>
+    <h1> Leadership Updates</h1>
+<body>
+ <h2> {{ posts.projects|length }} Program(s) in Progress</h2>
+    <details>
+        {% for project in posts.projects %}
+        <summary>PROJECT: {{ project.projectName }} | COUNTDOWN: {{ project.count_down }} days | ⚠️ PROGRAM BLOCKERS: {{ project.program_blockers|length }}</summary>
+        <p><strong>Stats</strong></p>
+        {% for category, stats in project.stats.items() %}
+        <p>{{ category }} - {{ stats.percentage }}% completed</p>
+        {% endfor %}
+        <p><strong>⚠️ Program Blockers ⚠️</strong></p>
+        {% for name, data in project.program_blockers.items() %}
+        <p>{{ name }} - {{ data.severity }}</p>
+        {% endfor %}
+        {% if project.overdue_over is not none %}
+        <p><strong>⌛ Overdue Items ⌛</strong></p>
+        {% for name, data in project.overdue_over.items() %}
+        <p>{{ name }} ({{ data.category }}) was due on {{ data.due_date }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </details>
+
+
+
+</body>
+</html>

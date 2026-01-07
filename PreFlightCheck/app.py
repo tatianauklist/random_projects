@@ -1,108 +1,108 @@
 import os
-from flask import Flask
+from datetime import date
+
+from flask import Flask, render_template
 from logic.logic import loadChecklist, createReport, getAvailableProjects, loadIndex
 from dotenv import load_dotenv
 import os
 from pathlib import Path
 
 app = Flask(__name__)
-@app.route('/')
-def home():
-    index = loadIndex()
-    output = ""
-    for project in index["projects"]:
-        projectName = project["projectName"]
-        countdown = project["count_down"]
-        stats = project["stats"]
-        blockers = len(project["blockers"])
-        if blockers < 1:
-            blockers = 0
-        overdue = project["overdue"]
-        output += f"{projectName} ({countdown} days until event)<br>"
-        output += f"Blockers: {blockers}<br>"
-        for category, categoryStats in stats.items():
-            percentage = categoryStats["percentage"]
-            completed = categoryStats["completed"]
-            total = categoryStats["total_checks"]
-            output += f"{category}: {completed} / {total} ({percentage}%)<br>"
 
-    return output
 @app.route('/leadership')
 def leadership():
     index = loadIndex()
-    output = ""
     for project in index["projects"]:
         projectName = project["projectName"]
         countdown = project["count_down"]
-        blocker_count = len(project["blockers"])
         blockers = project["blockers"]
         overdue = project["overdue"]
-        if len(overdue) < 1:
-            overdue = 0
-        output += f"{projectName} ({countdown} days until event)<br>"
-        output += f"Blockers: {blocker_count}<br>"
-        output += f"Overdue: {overdue}<br>"
-        if blocker_count < 1:
-            output += f"No blockers found"
-        output += "Program Blockers<br>"
+        program_blockers = {}
         for name in blockers:
             blocker_data = blockers[name]
             categoryName = blocker_data["category"]
             severity = blocker_data["severity"]
             if categoryName == "program":
-                len(blockers)
-                output += f"{name} - {severity}<br>"
-    output += "<br>"
+                program_blockers[name] = {"name": name, "severity": severity}
+        project["program_blockers"] = program_blockers
+        if len(overdue) > 0:
+            overdue_over = {}
+            for name in overdue:
+                overdue_data = overdue[name]
+                categoryName = overdue_data["category"]
+                dueDate = overdue_data["due_date"]
+                severity = overdue_data["severity"]
+                overdue_over[name] = {"category": categoryName, "due_date": dueDate, "severity": severity}
+            project["overdue_over"] = overdue_over
+        else:
+            project["overdue_over"] = None
 
-    return output
+
+
+
+
+
+
+
+    return render_template("leaders.html",title="Leadership Updates",posts=index)
 
 @app.route('/team')
 def team():
     index = loadIndex()
-    output = ""
+    user = {"username": "Tatiana"}
     for project in index["projects"]:
         projectName = project["projectName"]
         countdown = project["count_down"]
         blocker_count = len(project["blockers"])
         blockers = project["blockers"]
         overdue = project["overdue"]
-        output += f"{projectName} ({countdown} days until event)<br>"
-        high_blockers = []
-        medium_blockers = []
-        low_blockers = []
+        high_blockers = {}
+        medium_blockers = {}
+        low_blockers = {}
         for name in blockers:
             blocker_data = blockers[name]
             categoryName = blocker_data["category"]
             severity = blocker_data["severity"]
             if severity == "high":
-                high_blockers.append((categoryName, name))
+                high_blockers[name] = {"category":categoryName}
             if severity == "medium":
-                medium_blockers.append((categoryName, name))
+                medium_blockers[name] = {"category":categoryName}
             if severity == "low":
-                low_blockers.append((categoryName, name))
+                low_blockers[name] = {"category":categoryName}
+        project["high_blockers"] = high_blockers
+        project["medium_blockers"] = medium_blockers
+        project["low_blockers"] = low_blockers
+        high_overdue = {}
+        medium_overdue = {}
+        low_overdue = {}
         if len(overdue) < 1:
-            output += f"No overdue items found<br>"
+            high_overdue = 0
+            medium_overdue = 0
+            low_overdue = 0
         else:
             for name in overdue:
                 overdue_data = overdue[name]
                 categoryName = overdue_data["category"]
                 due_date = overdue_data["due_date"]
                 severity = overdue_data["severity"]
-                output += f"{name} - {categoryName} - {severity}<br>"
-        output += " ‼️ High Blockers ‼️<br>"
-        for category, name in high_blockers:
-            output += f"{name}  - {category}<br>"
-        output += "❗ Medium Blockers ❗<br>"
-        for category, name in medium_blockers:
-            output += f"{name}  - {category}<br>"
-        output += "⚠️ Low Blockers ⚠️<br>"
-        for category, name in low_blockers:
-            output += f"{name}  - {category}<br>"
-    return output
+                if severity == "high":
+                    high_overdue[name] = {"category": categoryName, "due_date": due_date}
+                if severity == "medium":
+                    medium_overdue[name] = {"category": categoryName, "due_date": due_date}
+                if severity == "low":
+                    low_overdue[name] = {"category": categoryName, "due_date": due_date}
+        project["high_overdue"] = high_overdue
+        project["medium_overdue"] = medium_overdue
+        project["low_overdue"] = low_overdue
+    return render_template("stakeholders.html",title="Team View",user=user,posts=index)
 
 
-
-
+@app.route('/index')
+@app.route('/')
+def home():
+    user = {'username': 'Tatiana'}
+    posts = loadIndex()
+    return render_template("index.html",title='Home',user=user,posts=posts)
 
 
 
